@@ -5,7 +5,7 @@ import Home2 from '../scenes';
 import CounterValue from '../Components/CounterValue'
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { jugarPosicion } from '../Components/Reducers/Actions/index';
+import { jugarPosicion } from '../Components/Reducers/Actions';
 import { JUGADORX, JUGADOR0, TABLERO } from '../Components/Constants/index';
 
 const INITIAL_GAME_STATE = {
@@ -39,6 +39,14 @@ class App extends Component {
       box.innerText = this.gameState.turn;
 
       this.gameState.turn = this.gameState.turn === 'X' ? 'O' : 'X';
+
+      const board2 = box.dataset.square;
+      const turn2 = this.gameState.turn === 'X' ? JUGADOR0 : JUGADORX;
+
+      this.props.dispatch(jugarPosicion(board2, turn2));
+
+      console.log(this.props.movimientos);
+      console.log(this.props.tablero);
 
       this.gameState.totalMoves++;
 
