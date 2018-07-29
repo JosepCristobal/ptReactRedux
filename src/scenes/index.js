@@ -1,12 +1,12 @@
 import React from 'react';
-import {Box} from 'rebass';
+import { Box } from 'rebass';
 
 
 
-const Home2 = ({click, gameState}) =>
-   (<Box>
+const Home2 = ({ click, gameState }) =>
+    (<Box>
         <div id="game">
-            <div id="board" onClick={(e)=> click(e.target)}>
+            <div id="board" onClick={(e) => click(e.target)}>
                 <div className="square" data-square="0"></div>
                 <div className="square" data-square="1"></div>
                 <div className="square" data-square="2"></div>

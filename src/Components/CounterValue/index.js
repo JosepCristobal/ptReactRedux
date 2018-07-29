@@ -1,19 +1,19 @@
-import React from 'react';
+import React from 'react'
 import PropTypes from 'prop-types';
 
 const CounterValue = ({ value }) => (
     <div center>
-        El valor de movimentos es: 
+        El valor de movimentos es:
     {' '}
         <b>
             {value.totalMoves}
         </b>
         <div center>
-        Turno para Jugador: 
+            Turno para Jugador:
          {' '}
-        <b>
-            {value.turn}
-        </b>
+            <b>
+                {value.turn}
+            </b>
         </div>
     </div>
 );

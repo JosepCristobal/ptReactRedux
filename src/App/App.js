@@ -4,6 +4,9 @@ import './App.css';
 import Home2 from '../scenes';
 import CounterValue from '../Components/CounterValue'
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { jugarPosicion } from '../Components/Reducers/Actions/index';
+import { JUGADORX, JUGADOR0, TABLERO } from '../Components/Constants/index';
 
 const INITIAL_GAME_STATE = {
   turn: 'X',
@@ -11,7 +14,8 @@ const INITIAL_GAME_STATE = {
   gameEnded: false,
   board: Array(9).fill(''),
   totalMoves: 0,
-  winner: undefined,
+  winnerX: 0,
+  winnerY: 0,
 
 };
 
@@ -27,7 +31,7 @@ class App extends Component {
   }
 
   clicked(box) {
-    
+
     if (this.gameState.gameEnded || this.gameState.gameLocked) return;
 
     if (this.gameState.board[box.dataset.square] === '') {
@@ -83,26 +87,29 @@ class App extends Component {
   }
 
   resetCounter = () => {
+    var reinicio = window.confirm("¿Quieres reiniciar?");
+    if (reinicio === true) {
 
-    this.gameState = {
-      turn: 'X',
-      gameLocked: false,
-      gameEnded: false,
-      board: Array(9).fill(''),
-      totalMoves: 0,
-      winner: undefined,
+
+      this.gameState = {
+        turn: 'X',
+        gameLocked: false,
+        gameEnded: false,
+        board: Array(9).fill(''),
+        totalMoves: 0,
+        winner: undefined,
+      }
+
+      this.setState({
+        winner: undefined,
+        winnerLine: 'El ganador es el jugador...'
+
+      });
+
+      for (let i = 0; i <= 8; i++) {
+        document.querySelectorAll('.square')[i].innerText = ''
+      }
     }
-
-    this.setState({
-      winner: undefined,
-      winnerLine: 'El ganador es el jugador...'
-
-    });
-
-    for (let i = 0; i <= 8; i++) {
-      document.querySelectorAll('.square')[i].innerText = ''
-    }
-
   }
 
 
@@ -116,17 +123,17 @@ class App extends Component {
         </div>
         {
           //<Home2 click={this.clicked} gameState={this.gameState}/>
-           <div id="board" onClick={(e) => this.clicked(e.target)}>
-          <div className="square" data-square="0"></div>
-          <div className="square" data-square="1"></div>
-          <div className="square" data-square="2"></div>
-          <div className="square" data-square="3"></div>
-          <div className="square" data-square="4"></div>
-          <div className="square" data-square="5"></div>
-          <div className="square" data-square="6"></div>
-          <div className="square" data-square="7"></div>
-          <div className="square" data-square="8"></div>
-        </div> }
+          <div id="board" onClick={(e) => this.clicked(e.target)}>
+            <div className="square" data-square="0"></div>
+            <div className="square" data-square="1"></div>
+            <div className="square" data-square="2"></div>
+            <div className="square" data-square="3"></div>
+            <div className="square" data-square="4"></div>
+            <div className="square" data-square="5"></div>
+            <div className="square" data-square="6"></div>
+            <div className="square" data-square="7"></div>
+            <div className="square" data-square="8"></div>
+          </div>}
         < div > <CounterValue value={this.gameState} /></div >
         <div id="status">{this.state.winnerLine}</div>
         <button type="button" onClick={this.resetCounter}>
@@ -136,5 +143,12 @@ class App extends Component {
     );
   }
 }
-
-export default App;
+function mapStateToProps(state) {
+  return {
+    movimientos: state.movimientos,
+    tablero: state.tablero,
+    turno: state.turno
+  };
+}
+//export default App;
+export default connect(mapStateToProps)(App);

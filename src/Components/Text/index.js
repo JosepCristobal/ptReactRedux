@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import styledMap from 'styled-map';
-import PropTypes from 'prop-types';
+import PropTypes from '../../../../../../Library/Caches/typescript/2.9/node_modules/@types/prop-types';
 
 const StyledText = styled.p`
   margin: 0;

@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-hot-loader": "^4.3.4",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "rebass": "^2.0.0-10",
