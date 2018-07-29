@@ -4,8 +4,11 @@ function turnoReducer(state = JUGADORX, action){
     switch (action.type){
         case 'JUGAR_POSICION':
         return action.turno === JUGADORX ? JUGADOR0 : JUGADORX;
-    default:
-    return state;
+
+        case 'RESET':
+            return JUGADORX;
+        default:
+            return state;
     }
 }
 export default turnoReducer;

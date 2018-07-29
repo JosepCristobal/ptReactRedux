@@ -7,9 +7,11 @@ function gameReducer(state = TABLERO, action){
             let newState = JSON.parse(JSON.stringify(state))
             newState[action.pos] = nuevoValor;
             return newState;
-        default:
 
-        return state;
+        case 'RESET':
+            return TABLERO;
+        default:
+            return state;
     }
 }
 export default gameReducer;
