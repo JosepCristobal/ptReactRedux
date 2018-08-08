@@ -36,13 +36,14 @@ class App extends Component {
 
     if (this.gameState.board[box.dataset.square] === '') {
       this.gameState.board[box.dataset.square] = this.gameState.turn;
+      
       box.innerText = this.gameState.turn;
-
+      
       this.gameState.turn = this.gameState.turn === 'X' ? 'O' : 'X';
 
       const board2 = box.dataset.square;
       const turn2 = this.gameState.turn === 'X' ? JUGADOR0 : JUGADORX;
-
+      //const turn2 = this.props.turno === 'X' ? JUGADOR0 : JUGADORX;
       this.props.dispatch(jugarPosicion(board2, turn2));
 
       console.log(this.props.movimientos);

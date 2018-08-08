@@ -1,4 +1,4 @@
 
-export const JUGADORX = "jugador 1 - las X";
-export const JUGADOR0 = "jugador 2 - las O";
+export const JUGADORX = "X";
+export const JUGADOR0 = "O";
 export const TABLERO = ["", "", "", "", "", "", "", "", ""];
