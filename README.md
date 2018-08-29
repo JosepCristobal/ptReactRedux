@@ -1,4 +1,4 @@
-# Práctica de tres en raya con React
+# Práctica de tres en raya con React V 0.0.3
 Descripción
 -Desarrollar un sistema para poder jugar a las ​3 en raya​.
 -Cada turno corresponderá a un jugador, hasta que uno de ellos venza, 
