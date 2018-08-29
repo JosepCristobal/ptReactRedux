@@ -1,4 +1,4 @@
-import {JUGADORX, JUGADOR0, TABLERO} from '../../Constants';
+import {JUGADORX, TABLERO} from '../../Constants';
 
 function gameReducer(state = TABLERO, action){
     switch (action.type) {

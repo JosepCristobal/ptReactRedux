@@ -43,6 +43,9 @@ flex-wrap: wrap;
 .square:hover {
   background: #eee;
 }
+.square:checked {
+  background: #222
+}
 
 #game {
   display: flex;

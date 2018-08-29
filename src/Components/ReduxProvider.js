@@ -20,7 +20,8 @@ export default class ReduxProvider extends React.Component{
                 <AppContainer>
                     <Provider store = {this.store}>
                         <div style={{ height: '100%'}}>
-                    <App store= {this.store} />
+                    <App store = {this.store} />
+                    
                         </div>
                     </Provider>
                 </AppContainer>
