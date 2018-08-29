@@ -1,10 +1,9 @@
 import { Provider} from 'react-redux';
 import GlobalState from './Reducers/reducers';
-import { compose, applyMiddleware, createStore} from 'redux';
+import {createStore} from 'redux';
 import React from 'react';
-import ReactDom from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import {JUGADORX, JUGADOR0, TABLERO} from './Constants';
+import {JUGADORX, TABLERO} from './Constants';
 import App from '../App';
 
 export default class ReduxProvider extends React.Component{
